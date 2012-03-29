@@ -1,0 +1,8 @@
+<platform xmlns="http://ns.adobe.com/air/extension/3.1">
+    <sdkVersion>5.0.0</sdkVersion>
+    <linkerOptions>
+        <option>-ios_version_min 5.0</option>
+        <option>-framework MediaPlayer</option>
+        <option>-framework AudioToolbox</option>
+    </linkerOptions>
+</platform>

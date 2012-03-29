@@ -1,0 +1,245 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0899406115238A1D00BF3E0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0899406015238A1D00BF3E0E /* Foundation.framework */; };
+		0899406715238A1D00BF3E0E /* IOSVolumeLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 0899406615238A1D00BF3E0E /* IOSVolumeLib.m */; };
+		0899406E15238A8000BF3E0E /* FlashRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0899406D15238A8000BF3E0E /* FlashRuntimeExtensions.h */; };
+		0899407015238B1200BF3E0E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0899406F15238B1200BF3E0E /* MediaPlayer.framework */; };
+		0899407515239BC200BF3E0E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0899407415239BC100BF3E0E /* AudioToolbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0899405D15238A1D00BF3E0E /* libIOSVolumeLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIOSVolumeLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0899406015238A1D00BF3E0E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0899406415238A1D00BF3E0E /* IOSVolumeLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOSVolumeLib-Prefix.pch"; sourceTree = "<group>"; };
+		0899406615238A1D00BF3E0E /* IOSVolumeLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSVolumeLib.m; sourceTree = "<group>"; };
+		0899406D15238A8000BF3E0E /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlashRuntimeExtensions.h; path = ../../../../../../Downloads/AdobeAIRSDK/include/FlashRuntimeExtensions.h; sourceTree = "<group>"; };
+		0899406F15238B1200BF3E0E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		0899407415239BC100BF3E0E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0899405A15238A1D00BF3E0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0899407515239BC200BF3E0E /* AudioToolbox.framework in Frameworks */,
+				0899407015238B1200BF3E0E /* MediaPlayer.framework in Frameworks */,
+				0899406115238A1D00BF3E0E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0899405215238A1C00BF3E0E = {
+			isa = PBXGroup;
+			children = (
+				0899407415239BC100BF3E0E /* AudioToolbox.framework */,
+				0899406F15238B1200BF3E0E /* MediaPlayer.framework */,
+				0899406D15238A8000BF3E0E /* FlashRuntimeExtensions.h */,
+				0899406215238A1D00BF3E0E /* IOSVolumeLib */,
+				0899405F15238A1D00BF3E0E /* Frameworks */,
+				0899405E15238A1D00BF3E0E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0899405E15238A1D00BF3E0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0899405D15238A1D00BF3E0E /* libIOSVolumeLib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0899405F15238A1D00BF3E0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0899406015238A1D00BF3E0E /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0899406215238A1D00BF3E0E /* IOSVolumeLib */ = {
+			isa = PBXGroup;
+			children = (
+				0899406615238A1D00BF3E0E /* IOSVolumeLib.m */,
+				0899406315238A1D00BF3E0E /* Supporting Files */,
+			);
+			path = IOSVolumeLib;
+			sourceTree = "<group>";
+		};
+		0899406315238A1D00BF3E0E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0899406415238A1D00BF3E0E /* IOSVolumeLib-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0899405B15238A1D00BF3E0E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0899406E15238A8000BF3E0E /* FlashRuntimeExtensions.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0899405C15238A1D00BF3E0E /* IOSVolumeLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0899406A15238A1D00BF3E0E /* Build configuration list for PBXNativeTarget "IOSVolumeLib" */;
+			buildPhases = (
+				0899405915238A1D00BF3E0E /* Sources */,
+				0899405A15238A1D00BF3E0E /* Frameworks */,
+				0899405B15238A1D00BF3E0E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IOSVolumeLib;
+			productName = IOSVolumeLib;
+			productReference = 0899405D15238A1D00BF3E0E /* libIOSVolumeLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0899405415238A1C00BF3E0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 0899405715238A1C00BF3E0E /* Build configuration list for PBXProject "IOSVolumeLib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0899405215238A1C00BF3E0E;
+			productRefGroup = 0899405E15238A1D00BF3E0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0899405C15238A1D00BF3E0E /* IOSVolumeLib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0899405915238A1D00BF3E0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0899406715238A1D00BF3E0E /* IOSVolumeLib.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0899406815238A1D00BF3E0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0899406915238A1D00BF3E0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0899406B15238A1D00BF3E0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = /Users/digitalprimates/Documents/projects/net/digitalprimates/nativeextensions/VolumeLib/debug;
+				DSTROOT = /tmp/IOSVolumeLib.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IOSVolumeLib/IOSVolumeLib-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0899406C15238A1D00BF3E0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = /Users/digitalprimates/Documents/projects/net/digitalprimates/nativeextensions/VolumeLib/release;
+				DSTROOT = /tmp/IOSVolumeLib.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IOSVolumeLib/IOSVolumeLib-Prefix.pch";
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0899405715238A1C00BF3E0E /* Build configuration list for PBXProject "IOSVolumeLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0899406815238A1D00BF3E0E /* Debug */,
+				0899406915238A1D00BF3E0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0899406A15238A1D00BF3E0E /* Build configuration list for PBXNativeTarget "IOSVolumeLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0899406B15238A1D00BF3E0E /* Debug */,
+				0899406C15238A1D00BF3E0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0899405415238A1C00BF3E0E /* Project object */;
+}
