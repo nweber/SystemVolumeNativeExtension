@@ -2,7 +2,13 @@
     <id>com.adobe.volume</id> 
     <versionNumber>0.0.1</versionNumber> 
     <platforms> 
-        <platform name="iPhone-ARM"> 
+        <platform name="Android-ARM">
+            <applicationDeployment>
+                <nativeLibrary>libAndroidVolumeLib.jar</nativeLibrary>
+                <initializer>com.adobe.nativeextension.volume.VolumeExtension</initializer>
+            </applicationDeployment> 
+        </platform>
+		<platform name="iPhone-ARM"> 
             <applicationDeployment> 
                 <nativeLibrary>libIOSVolumeLib.a</nativeLibrary> 
                 <initializer>VolumeExtensionInitializer</initializer>

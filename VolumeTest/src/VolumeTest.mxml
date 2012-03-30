@@ -23,17 +23,22 @@
 				return _controller;
 			}
 			
-			private const URL1:String = "http://qthttp.akamai.com.edgesuite.net/iphone_demo/Video_Content/martha_stewart/blueberry_pies/all.m3u8";
-			private const URL2:String ="http://mediadelivery.adobe.com/adobevideodemo/manifests/hls-hillmancurtis-manifest.m3u8";
+			private const URL:String = "http://mediadelivery.adobe.com/vod/tablet_bridge_550.mp4";
 			
-			private var video:StageVideo;
+			private var video:*;
 			
 			private function init():void {
 				controller.addEventListener( VolumeEvent.VOLUME_CHANGED, onVolumeChanged );
 				controller.init();
 				
-				video = stage.stageVideos[0];
-				video.viewPort = new Rectangle( 0, 0, wrapper.width, wrapper.height );
+				if ( stage.stageVideos && stage.stageVideos.length > 0 ) {
+					video = stage.stageVideos[0];
+					video.viewPort = new Rectangle( 0, 0, wrapper.width, wrapper.height );
+				}
+				else {
+					video = new Video( wrapper.width, wrapper.height );
+					wrapper.addChild( video );
+				}
 				
 				var nc:NetConnection = new NetConnection();
 				nc.connect( null );
@@ -44,7 +49,7 @@
 				
 				video.attachNetStream( ns );
 				
-				ns.play( URL1 );
+				ns.play( URL );
 			}
 			
 			private function onNetStatus( event:NetStatusEvent ):void {
@@ -52,6 +57,7 @@
 			}
 			
 			private function onVolumeChanged( event:VolumeEvent ):void {
+				trace( "System volume changed:", event.volume );
 				volumeSlider.value = event.volume
 			}
 			

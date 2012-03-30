@@ -1,3 +1,94 @@
+DESCRIPTION
+
 An AIR native extension to interact with the system volume on iOS and Android devices.
 
-Integrating the ANE:
+EXPECTED BEHAVIOR
+
+iOS
+
+When changing the volume using the hardware volume keys the system volume popup will be displayed and the AIR application is notified of the new volume.  AIR is notified of the new volume each time a hardware button is pressed.
+
+When changing the volume from AIR the system volume popup is displayed with the new volume.
+
+Android
+
+When changing the volume using the hardware volume keys the system volume popup will be displayed.  The AIR application will be notified of the new volume after the system volume popup disappears.  This means that the user can press the hardware volume buttons several times before AIR is notified of a volume change.
+
+When changing the volume from AIR the system volume is changed, but the system volume popup is not displayed.
+
+BUILDING THE ANE
+
+Navigate to the "build" directory.
+Be sure all files are up to date:
+
+VolumeLib.swc
+library.swf (extract from VolumeLib.swc - use WinRar/7zip to extract VolumeLib.swc as if it were a zip file.)
+extension.xml
+platformoptions.xml
+android/libAndroidVolumeLib.jar
+debug/libIOSVolumeLiba.
+
+Run this command:
+"adt -package -target ane Volume.ane extension.xml -swc VolumeLib.swc -platform iPhone-ARM library.swf -C debug . -platformoptions platformoptions.xml -platform Android-ARM library.swf -C android ."
+
+EXAMPLE APPLICATION
+
+The VolumeTest project shows a very simple implementation of the native extension.  There is a video that plays back (to be sure there's sound), and a slider which responds to changes in system volume and initiates a change to the system volume when the thumb is moved.
+
+INTEGRATING THE ANE
+
+Note:
+If you plan on supporting iOS you *must* build the IPA from a machine running OSX with the iPhone SDK installed.  The native extension uses libraries that AIR does not package by default, so you must be able to link them from the iPhone SDK.  Building the IPA from a Windows machine will not work.
+You can build the Android APK from either an OSX machine or a Windows machine.
+
+1. Add the Native Extension.
+Right click on the project and go to "properties".
+Navigate to "Flex Build Path" -> "Native Extensions".
+Click "Add ANE", navigate to Volume.ane and select it.
+Press "OK".
+
+2. Add support for desired platforms.
+Right click on the project and go to "properties".
+Expand the "Flex Build Packaging" option.
+If you want to support iOS, navigate to "Apple iOS" option.
+	Be sure "enabled this target platform" is checked.
+	Navigate to the "Native Extensions" tab.
+	Be sure the check next to the native extension in the "Package" column is checked.
+	Put the location of the iPhone SDK into the "Apple iOS SDK" input.  (The default location should be "/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk".)
+	Press "Apply".
+If you want to support Android, navigate to the "Google Android" option.
+	Be sure "enabled this target platform" is checked.
+	Navigate to the "Native Extensions" tab.
+	Be sure the check next to the native extension in the "Package" column is checked.
+	Press "Apply".
+Press "OK".
+
+3. Create and setup the controller.
+Create a new instance of the VolumeController class.
+	private var controller:VolumeController = new VolumeController();
+Add an event listener for VolumeEvent.VOLUME_CHANGED.
+	controller.addEventListener( VolumeEvent.VOLUME_CHANGED, onVolumeChanged );
+Call the init() method of the controller.
+	controller.init();
+After calling init() you will get a VOLUME_CHANGED event immediately containing the current system volume.  The init() method must be called in order for the native extension to report when the hardware volume buttons are pressed.
+
+4. Responding to VolumeEvent.VOLUME_CHANGED.
+Create the event listener function.  The volume property of the VolumeEvent holds the current system volume.
+	private function onVolumeChanged( event:VolumeEvent ):void {
+		trace( "System volume changed:", event.volume );
+		volumeSlider.value = event.volume
+	}
+When you receive this event the system volume has been changed by the user outside of the AIR application.
+The VolumeEvent.volume property is a value between 0 and 1.
+Update the AIR volume UI to reflect the new system volume.
+In the above example code an HSlider is updated to reflect the value.
+
+5. Change the system volume.
+When the AIR application want to change the system volume call the VolumeController.setVolume() method.
+	private function onSliderChange( event:Event ):void {
+		var value:Number = volumeSlider.value;
+		trace( "Set volume to:", value );
+		controller.setVolume( value );
+	}
+The value passed to setVolume() should be between 0 and 1.
+In the above example code the setVolume() method is called in response to the CHANGE event on an HSlider component.

@@ -27,7 +27,7 @@
           <libraryPathEntry kind="3" linkType="1" path="${PROJECT_FRAMEWORKS}/libs/automation_agent.swc" useDefaultLinkType="false"/>
         </excludedEntries>
       </libraryPathEntry>
-      <libraryPathEntry kind="1" linkType="1" path="libs"/>
+      <libraryPathEntry kind="5" linkType="2" path="/Users/digitalprimates/Documents/projects/net/digitalprimates/nativeextensions/VolumeLib/Volume.ane"/>
     </libraryPath>
     <sourceAttachmentPath/>
   </compiler>
@@ -41,10 +41,12 @@
   <flashCatalyst validateFlashCatalystCompatibility="false"/>
   <buildTargets>
     <buildTarget buildTargetName="com.adobe.flexide.multiplatform.ios.platform" iosSettingsVersion="1" provisioningFile="/Users/digitalprimates/Documents/Adobe Flash Builder 4.6/VolumeTest/NathanDemo.mobileprovision" releasePackageType="">
-      <multiPlatformSettings enabled="false" includePlatformLibs="false" nativeSDKPathString="/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk" platformID="com.adobe.flexide.multiplatform.ios.platform" version="2"/>
+      <multiPlatformSettings enabled="true" includePlatformLibs="false" nativeSDKPathString="/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.0.sdk" platformID="com.adobe.flexide.multiplatform.ios.platform" version="2"/>
       <airSettings airCertificatePath="/Users/digitalprimates/Documents/Adobe Flash Builder 4.6/VolumeTest/iphone_dev.p12" airTimestamp="true" anePathSet="true" version="1">
         <airExcludes/>
-        <anePaths/>
+        <anePaths>
+          <anePathEntry path="/Users/digitalprimates/Documents/projects/net/digitalprimates/nativeextensions/VolumeLib/Volume.ane"/>
+        </anePaths>
       </airSettings>
       <actionScriptSettings version="1"/>
     </buildTarget>
