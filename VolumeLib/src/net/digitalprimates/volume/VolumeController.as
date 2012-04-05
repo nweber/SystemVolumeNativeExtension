@@ -131,7 +131,7 @@ package net.digitalprimates.volume
 		public function VolumeController( enforcer:SingletonEnforcer ) {
 			super();
 			
-			extContext = ExtensionContext.createExtensionContext( "com.adobe.volume", "" );
+			extContext = ExtensionContext.createExtensionContext( "net.digitalprimates.volume", "" );
 			
 			if ( !extContext ) {
 				throw new Error( "Volume native extension is not supported on this platform." );
