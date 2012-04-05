@@ -1,80 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
-<s:Application
-	xmlns:fx="http://ns.adobe.com/mxml/2009" 
-	xmlns:s="library://ns.adobe.com/flex/spark"
-	xmlns:mx="library://ns.adobe.com/flex/mx"
-	backgroundColor="0"
-	applicationComplete="init()">
-	
-	<fx:Script>
-		<![CDATA[
-			import com.adobe.nativeextension.volume.VolumeController;
-			import com.adobe.nativeextension.volume.events.VolumeEvent;
-			
-			import org.osmf.net.NetClient;
-			
-			private var _controller:VolumeController;
-			
-			protected function get controller():VolumeController {
-				if ( !_controller ) {
-					_controller = new VolumeController();
-				}
-				
-				return _controller;
-			}
-			
-			private const URL:String = "http://mediadelivery.adobe.com/vod/tablet_bridge_550.mp4";
-			
-			private var video:*;
-			
-			private function init():void {
-				controller.addEventListener( VolumeEvent.VOLUME_CHANGED, onVolumeChanged );
-				controller.init();
-				
-				if ( stage.stageVideos && stage.stageVideos.length > 0 ) {
-					video = stage.stageVideos[0];
-					video.viewPort = new Rectangle( 0, 0, wrapper.width, wrapper.height );
-				}
-				else {
-					video = new Video( wrapper.width, wrapper.height );
-					wrapper.addChild( video );
-				}
-				
-				var nc:NetConnection = new NetConnection();
-				nc.connect( null );
-				
-				var ns:NetStream = new NetStream( nc );
-				ns.client = new NetClient();
-				ns.addEventListener( NetStatusEvent.NET_STATUS, onNetStatus );
-				
-				video.attachNetStream( ns );
-				
-				ns.play( URL );
-			}
-			
-			private function onNetStatus( event:NetStatusEvent ):void {
-				trace( event.info.code );
-			}
-			
-			private function onVolumeChanged( event:VolumeEvent ):void {
-				trace( "System volume changed:", event.volume );
-				volumeSlider.value = event.volume
-			}
-			
-			private function onSliderChange( event:Event ):void {
-				var value:Number = volumeSlider.value;
-				trace( "Set volume to:", value );
-				controller.setVolume( value );
-			}
-		]]>
-	</fx:Script>
-	
-	<s:layout>
-		<s:VerticalLayout/>
-	</s:layout>
-	
-	<mx:UIComponent id="wrapper" width="100%" height="100%"/>
-	
-	<s:HSlider id="volumeSlider" width="100%" minimum="0" maximum="1" stepSize=".1" change="onSliderChange(event)"/>
-	
-</s:Application>
+<?xml version="1.0" encoding="utf-8"?><s:Application	xmlns:fx="http://ns.adobe.com/mxml/2009" 	xmlns:s="library://ns.adobe.com/flex/spark"	xmlns:mx="library://ns.adobe.com/flex/mx"	backgroundColor="0"	applicationComplete="init()">
+	<fx:Script>		<![CDATA[			import net.digitalprimates.volume.VolumeController;			import net.digitalprimates.volume.events.VolumeEvent;
+			import org.osmf.net.NetClient;
+			private var controller:VolumeController = VolumeController.instance;						private const URL:String = "http://mediadelivery.adobe.com/vod/tablet_bridge_550.mp4";
+			private var video:*;
+			private function init():void {				// add listener				controller.addEventListener( VolumeEvent.VOLUME_CHANGED, onVolumeChanged );
+				// sync initial volume				volumeSlider.value = controller.systemVolume;
+				// set up video				if ( stage.stageVideos && stage.stageVideos.length > 0 ) {					video = stage.stageVideos[0];					video.viewPort = new Rectangle( 0, 0, wrapper.width, wrapper.height );				}				else {					video = new Video( wrapper.width, wrapper.height );					wrapper.addChild( video );				}
+				var nc:NetConnection = new NetConnection();				nc.connect( null );
+				var ns:NetStream = new NetStream( nc );				ns.client = new NetClient();				ns.addEventListener( NetStatusEvent.NET_STATUS, onNetStatus );
+				video.attachNetStream( ns );
+				ns.play( URL );			}
+			private function onNetStatus( event:NetStatusEvent ):void {				trace( event.info.code );			}
+			private function onVolumeChanged( event:VolumeEvent ):void {				trace( "System volume changed:", event.volume );				volumeSlider.value = event.volume;			}
+			private function onSliderChange( event:Event ):void {				var value:Number = volumeSlider.value;				trace( "Set volume to:", value );				controller.setVolume( value );			}		]]>	</fx:Script>
+	<s:layout>		<s:VerticalLayout/>	</s:layout>
+	<s:HSlider id="volumeSlider" width="100%" minimum="0" maximum="1" stepSize=".1" change="onSliderChange(event)"/>
+	<mx:UIComponent id="wrapper" width="100%" height="100%"/>
+</s:Application>

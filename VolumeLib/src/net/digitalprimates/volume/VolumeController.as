@@ -1,0 +1,138 @@
+package net.digitalprimates.volume
+{
+	import net.digitalprimates.volume.events.VolumeEvent;
+	
+	import flash.events.EventDispatcher;
+	import flash.events.StatusEvent;
+	import flash.external.ExtensionContext;
+	
+	/**
+	 * A controller used to interact with the system volume on iOS and
+	 * Android devices.  Ways to change the volume programatically
+	 * and to respond to the hardware volume buttons are included.
+	 *  
+	 * @author Nathan Weber
+	 */	
+	public class VolumeController extends EventDispatcher
+	{
+		//----------------------------------------
+		//
+		// Variables
+		//
+		//----------------------------------------
+		
+		private static var _instance:VolumeController;
+		private var extContext:ExtensionContext;
+		
+		//----------------------------------------
+		//
+		// Properties
+		//
+		//----------------------------------------
+		
+		private var _systemVolume:Number = NaN;
+		
+		public function get systemVolume():Number {
+			return _systemVolume;
+		}
+		
+		public function set systemVolume( value:Number ):void {
+			if ( _systemVolume == value ) {
+				return;
+			}
+			
+			_systemVolume = value;
+		}
+		
+		//----------------------------------------
+		//
+		// Public Methods
+		//
+		//----------------------------------------
+		
+		public static function get instance():VolumeController {
+			if ( !_instance ) {
+				_instance = new VolumeController( new SingletonEnforcer() );
+				_instance.init();
+			}
+			
+			return _instance;
+		}
+		
+		/**
+		 * Changes the device's system volume.
+		 *  
+		 * @param newVolume The new system volume.  This value should be between 0 and 1.
+		 */		
+		public function setVolume( newVolume:Number ):void {
+			if ( isNaN(newVolume) )  {
+				newVolume = 1;
+			}
+			
+			if ( newVolume < 0 ) {
+				newVolume = 0;
+			}
+			
+			if ( newVolume > 1 ) {
+				newVolume = 1;
+			}
+			
+			extContext.call( "setVolume", newVolume );
+			
+			systemVolume = newVolume;
+		}
+		
+		/**
+		 * Cleans up the instance of the native extension. 
+		 */		
+		public function dispose():void { 
+			extContext.dispose(); 
+		}
+		
+		//----------------------------------------
+		//
+		// Handlers
+		//
+		//----------------------------------------
+		
+		private function init():void {
+			extContext.call( "init" );
+		}
+		
+		//----------------------------------------
+		//
+		// Handlers
+		//
+		//----------------------------------------
+		
+		private function onStatus( event:StatusEvent ):void {
+			systemVolume = Number(event.level);
+			dispatchEvent( new VolumeEvent( VolumeEvent.VOLUME_CHANGED, systemVolume, false, false ) );
+		}
+		
+		//----------------------------------------
+		//
+		// Constructor
+		//
+		//----------------------------------------
+		
+		/**
+		 * Constructor. 
+		 */		
+		public function VolumeController( enforcer:SingletonEnforcer ) {
+			super();
+			
+			extContext = ExtensionContext.createExtensionContext( "com.adobe.volume", "" );
+			
+			if ( !extContext ) {
+				throw new Error( "Volume native extension is not supported on this platform." );
+			}
+			
+			extContext.addEventListener( StatusEvent.STATUS, onStatus );
+		}
+	}
+}
+
+class SingletonEnforcer {
+	
+}
