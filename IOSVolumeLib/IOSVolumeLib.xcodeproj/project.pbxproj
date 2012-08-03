@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0814313015CC199400FA85C3 /* FlashRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0814312F15CC199400FA85C3 /* FlashRuntimeExtensions.h */; };
 		0899406115238A1D00BF3E0E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0899406015238A1D00BF3E0E /* Foundation.framework */; };
 		0899406715238A1D00BF3E0E /* IOSVolumeLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 0899406615238A1D00BF3E0E /* IOSVolumeLib.m */; };
-		0899406E15238A8000BF3E0E /* FlashRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0899406D15238A8000BF3E0E /* FlashRuntimeExtensions.h */; };
 		0899407015238B1200BF3E0E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0899406F15238B1200BF3E0E /* MediaPlayer.framework */; };
 		0899407515239BC200BF3E0E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0899407415239BC100BF3E0E /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0814312F15CC199400FA85C3 /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlashRuntimeExtensions.h; path = ../../../../AdobeAIRSDK/include/FlashRuntimeExtensions.h; sourceTree = "<group>"; };
 		0899405D15238A1D00BF3E0E /* libIOSVolumeLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIOSVolumeLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0899406015238A1D00BF3E0E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0899406415238A1D00BF3E0E /* IOSVolumeLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IOSVolumeLib-Prefix.pch"; sourceTree = "<group>"; };
 		0899406615238A1D00BF3E0E /* IOSVolumeLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IOSVolumeLib.m; sourceTree = "<group>"; };
-		0899406D15238A8000BF3E0E /* FlashRuntimeExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlashRuntimeExtensions.h; path = ../../../../../../Downloads/AdobeAIRSDK/include/FlashRuntimeExtensions.h; sourceTree = "<group>"; };
 		0899406F15238B1200BF3E0E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		0899407415239BC100BF3E0E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -41,9 +41,9 @@
 		0899405215238A1C00BF3E0E = {
 			isa = PBXGroup;
 			children = (
+				0814312F15CC199400FA85C3 /* FlashRuntimeExtensions.h */,
 				0899407415239BC100BF3E0E /* AudioToolbox.framework */,
 				0899406F15238B1200BF3E0E /* MediaPlayer.framework */,
-				0899406D15238A8000BF3E0E /* FlashRuntimeExtensions.h */,
 				0899406215238A1D00BF3E0E /* IOSVolumeLib */,
 				0899405F15238A1D00BF3E0E /* Frameworks */,
 				0899405E15238A1D00BF3E0E /* Products */,
@@ -90,7 +90,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0899406E15238A8000BF3E0E /* FlashRuntimeExtensions.h in Headers */,
+				0814313015CC199400FA85C3 /* FlashRuntimeExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +240,7 @@
 				0899406C15238A1D00BF3E0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

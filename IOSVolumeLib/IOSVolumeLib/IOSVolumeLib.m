@@ -84,16 +84,11 @@ FREObject setVolume(FREContext ctx, void* funcData, uint32_t argc, FREObject arg
 }
 
 
-void ContextFinalizer(FREContext ctx)
-{
-    return;
-}
-
-void ContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
+void VolExtContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToTest, const FRENamedFunction** functionsToSet)
 {
     *numFunctionsToTest = 2;
     
-    FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * 2);
+    FRENamedFunction* func = (FRENamedFunction*) malloc(sizeof(FRENamedFunction) * *numFunctionsToTest);
     
     func[0].name = (const uint8_t*) "init";
     func[0].functionData = NULL;
@@ -109,11 +104,5 @@ void ContextInitializer(void* extData, const uint8_t* ctxType, FREContext ctx, u
 void VolumeExtensionInitializer(void** extDataToSet, FREContextInitializer* ctxInitializerToSet, FREContextFinalizer* ctxFinalizerToSet)
 {
     *extDataToSet = NULL;
-    *ctxInitializerToSet = &ContextInitializer;
-    *ctxFinalizerToSet = &ContextFinalizer;
-}
-
-void VolumeExtensionFinalizer(void* extData)
-{
-    return;
+    *ctxInitializerToSet = &VolExtContextInitializer;
 }
