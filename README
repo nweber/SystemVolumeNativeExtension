@@ -20,12 +20,13 @@ extension.xml
 platformoptions.xml
 android/libAndroidVolumeLib.jar
 android/library.swf (extract from VolumeLib.swc)
-debug/libIOSVolumeLiba.
-debug/library.swf (extract from VolumeLib.swc)
+ios/libIOSVolumeLiba.
+ios/library.swf (extract from VolumeLib.swc)
 default/library.swf (extract from VolumeDefault.swc)
 
 Run this command:
 "adt -package -storetype pkcs12 -keystore CERT.p12 -storepass XXXX -target ANE Volume.ane extension.xml -swc VolumeLib.swc -platform iPhone-ARM -C ios . -platformoptions platformoptions.xml -platform Android-ARM -C android . -platform default -C default ."
+Note: The certificate is optional.  Flash Builder might complain about an unsigned ANE if the certificate is absent, but it will work just fine.
 
 EXAMPLE APPLICATION
 The VolumeTest project shows a very simple implementation of the native extension.  There is a video that plays back (to be sure there's sound), and a slider which responds to changes in system volume and initiates a change to the system volume when the thumb is moved.
